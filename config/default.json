@@ -1,0 +1,6 @@
+{
+  "port": 4000,
+  "mongoURI": "mongodb+srv://madner:lfgf12345@cluster0.pomko.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "jwtSecret": "freshCode",
+  "baseUrl": "http://localhost:5000"
+}

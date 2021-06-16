@@ -1,0 +1,57 @@
+@import "~materialize-css/dist/css/materialize.min.css";
+.btn{
+    margin-right: 10px;
+}
+input.yellow-input{
+    border-bottom: 1px solid #fff!important;
+    box-shadow: 0 1px 0 0 #ffffff!important;
+}
+input.yellow-input +label {
+    color: #ffffff!important;
+}
+input.yellow-input:focus{
+    border-bottom: 1px solid #ffeb3b!important;
+    box-shadow: 0 1px 0 0 #ffeb3b!important;
+}
+input.yellow-input:focus +label {
+    color: #ffeb3b!important;
+}
+.nav-wrapper{
+    padding: 0 2rem;
+}
+.preloader{
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem ;
+}
+.mdiv {
+    cursor: pointer;
+    height: 25px;
+    width: 2px;
+    margin-left: 12px;
+    background-color: black;
+    transform: rotate(45deg);
+    Z-index: 1;
+    margin-right: 10px;
+}
+
+.md {
+    height: 25px;
+    width: 2px;
+    background-color: black;
+    transform: rotate(90deg);
+    Z-index: 2;
+}
+.all{
+    min-width: 100vh;
+    min-height: 100vh;
+    width: auto;
+    margin: 0;
+    top: 0;
+    display: block;
+    z-index: 10000000;
+}
+.no-scroll{
+
+    overflow: hidden;
+}
