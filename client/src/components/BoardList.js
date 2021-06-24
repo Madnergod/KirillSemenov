@@ -7,7 +7,7 @@ export const BoardList = ({ boards }) => {
     return <p className="center">Досок нету</p>;
   }
   return (
-    <div className="row">
+    <div className="row" style={{paddingTop:'5rem'}}>
       {boards.map((board) => {
         if (board.userId===userId){
           return (

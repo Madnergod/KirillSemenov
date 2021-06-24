@@ -24,7 +24,7 @@ export const CreateBoard = () =>{
             message(data.message)
             history.push(`/detail/${data.board._id}`)
         }catch (e) {
-
+            message(e)
         }
     }
     return(

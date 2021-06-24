@@ -3,9 +3,11 @@ import { useHttp } from "../hooks/http.hook";
 import { AuthContext } from "../context/AuthContext";
 import { useParams } from "react-router-dom";
 import { Draggable,Droppable} from "react-beautiful-dnd";
+import {useMessage} from "../hooks/message.hook";
 
 
 export const Lists = ({ board,cards,getCards }) => {
+  const message = useMessage()
   const [list, setList] = useState([]);
   const [name, setName] = useState("");
   const [activity, setActivity] = useState([]);
@@ -59,7 +61,9 @@ export const Lists = ({ board,cards,getCards }) => {
         Authorization: `Bearer ${token}`,
       });
       setActivity(fetched);
-    } catch (e) {}
+    } catch (e) {
+
+    }
   },[request,token]);
 
   useEffect(() => {
@@ -71,16 +75,19 @@ export const Lists = ({ board,cards,getCards }) => {
   }, [getList, getComments,getActivity,getUser]);
 
   async function addCard(id) {
-    await request(
-      "/api/card/add",
-      "POST",
-      { name, id},
-      {
-        Authorization: `Bearer ${token}`,
-      }
-    );
-    setName("");
-    await getCards();
+    if (name){
+      await request(
+          "/api/card/add",
+          "POST",
+          { name, id},
+          {
+            Authorization: `Bearer ${token}`,
+          }
+      );
+      setName("");
+      await getCards();
+    }
+    message('Вы не ввели название')
   }
 
   function changeName(event) {
@@ -176,17 +183,22 @@ export const Lists = ({ board,cards,getCards }) => {
           className="col s6"
           style={{ border: "1px solid lightgrey", borderRadius: 2 ,display:"flex",flexDirection:"column"}}
         >
-          <h4>
-            {item.name}
+          <div style={{display:"flex",justifyContent:"space-between"}}>
+            <h4>
+              {item.name}
+            </h4>
             <div className="mdiv right">
               <div
-                className="md right"
-                onClick={() => {
-                  deleteButton(item._id);
-                }}
-              ></div>
+                  className="md right"
+                  onClick={() => {
+                    deleteButton(item._id);
+                  }}
+              >
+
+              </div>
             </div>
-          </h4>
+          </div>
+
           <Droppable droppableId={item._id}>
             {(provided) => (
               <ul

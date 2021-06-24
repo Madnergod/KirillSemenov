@@ -30,7 +30,7 @@ export const DetailBoard = () =>{
                 return 0
             })
             setCards(fetched);
-        } catch (e) {}
+        } catch (e) {alert(e)}
     }, [request, token]);
 
     const getBoard = useCallback(async ()=>{
@@ -40,7 +40,7 @@ export const DetailBoard = () =>{
             })
             setBoard(fetched)
         }catch (e) {
-            console.log(e)
+            alert(e)
         }
     },[token,boardId,request])
 

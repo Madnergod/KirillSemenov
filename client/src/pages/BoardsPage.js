@@ -15,7 +15,7 @@ export const BoardsPage = () => {
         Authorization: `Bearer ${token}`,
       });
       setBoards(fetched);
-    } catch (e) {}
+    } catch (e) {alert(e)}
   }, [token, request]);
 
   useEffect(() => {
