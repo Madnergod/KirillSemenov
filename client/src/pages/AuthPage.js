@@ -8,8 +8,8 @@ export const AuthPage = () => {
   const message = useMessage()
   const { loading,error, request ,clearError} = useHttp();
   const [form, setForm] = useState({
-    email: "",
-    password: "",
+    email: "123",
+    password: "123",
   });
   useEffect(()=>{
       message(error)

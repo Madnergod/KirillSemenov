@@ -57,7 +57,6 @@ router.patch("/update", auth, async (req, res) => {
       { _id: id },
       { description: description }
     );
-    console.log(activity);
     res.json(cards);
   } catch (e) {
     res.status(500).json({ message: "Что-то пошло не так" });
@@ -71,7 +70,6 @@ router.post("/drop", auth, async (req, res) => {
         { _id: cards[i]._id },
         { order: cards[i].order }
       );
-      console.log(a);
     }
 
     res.status(200).json({ message: "Успех" });
@@ -82,7 +80,6 @@ router.post("/drop", auth, async (req, res) => {
 router.post("/list", auth, async (req, res) => {
   try {
     const listId = req.body.listId;
-    console.log(listId);
     const id = req.body.cardId;
     const card = await Card.updateOne({ _id: id }, { listId: listId });
     res.json(card);
